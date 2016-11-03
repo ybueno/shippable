@@ -1,0 +1,8 @@
+#!/usr/bin/expect -f
+
+spawn heroku login
+expect "Email:"
+send "EMAIL DO USUARIO DO HEROKU\r"
+expect "Password (typing will be hidden):"
+send "$env(HEROKU_API)\r"
+expect "$ "
