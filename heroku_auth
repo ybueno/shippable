@@ -1,0 +1,10 @@
+#!/usr/bin/expect -f
+
+spawn heroku login
+expect "USUARIO"
+#tab
+send "''\r"
+expect "SENHA"
+send "$env(HEROKU_API)\r"
+#enter
+expect "$ "
