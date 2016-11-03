@@ -5,10 +5,16 @@ node_js:
 
 env:
  global:
-  - APP_NAME=devops-...
+  - APP_NAME=...
   - HEROKU_API = ...
 
 build:
  ci:
   - npm install
   - npm test
+
+before_install:
+ - sudo apt-get update
+ - sudo apt-get install expect
+ - which heroku || wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
+ - chmod +x heroku_auth
