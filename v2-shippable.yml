@@ -6,12 +6,16 @@ node_js:
 env:
  global:
   - APP_NAME=...
-  - HEROKU_API = ...
+  - HEROKU_API=...
 
 build:
  ci:
   - npm install
   - npm test
+
+ on_success:
+  - ./heroku_auth
+  - git push -f https://git.heroku.com/devops-ybueno.git  master
 
 before_install:
  - sudo apt-get update
